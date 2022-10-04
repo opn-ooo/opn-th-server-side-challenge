@@ -30,6 +30,17 @@ Our commerce services need an interface where it bridges between frontend and da
 ## 2. Database
 Design a database contains tables that support bellowing requirements.
 
+#### Requirements
+- As a store owner, I'd like to save customer information, so I can track age, gender and location for analysis purpose.
+- As a store owner, I'd like to have a list of products, so my customers can browse and discover my collections.
+  - Each product can be listed in categories.
+  - Each product has different and multiple variation which can be color, size or anything.
+- As a store owner, I would like my customers to be able to add items to cart, so they can process to check out.
+
+#### Notes
+- Your design can be detailed as much as you want.
+- Any format of the design are acceptable, example: TXT, MD, SQL, JSON or any visual diagram as long as you can explain.
+
 ## 3. Coding
 Write a service called `Cart` which serve usage listed below.
 
@@ -120,17 +131,6 @@ cart.count() // 2
 
 #### Notes
 - You will submit with language you are requested to do so.
-
-#### Requirements
-- As a store owner, I'd like to save customer information, so I can track age, gender and location for analysis purpose.
-- As a store owner, I'd like to have a list of products, so my customers can browse and discover my collections.
-  - Each product can be listed in categories.
-  - Each product has different and multiple variation which can be color, size or anything.
-- As a store owner, I would like my customers to be able to add items to cart, so they can process to check out.
-
-#### Notes
-- Your design can be detailed as much as you want.
-- Any format of the design are acceptable, example: TXT, MD, SQL, JSON or any visual diagram as long as you can explain.
 
 ## 4. Solution Architecture
 Design microservices architecture for MVP Instagram-like mobile application which supports bellowing features.
