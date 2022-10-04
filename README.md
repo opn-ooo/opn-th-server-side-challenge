@@ -27,7 +27,10 @@ Our commerce services need an interface where it bridges between frontend and da
 - You will submit with language you are requested to do so.
 - Any idea that makes your application better are acceptable.
 
-## 2. Coding style
+## 2. Database
+Design a database contains tables that support bellowing requirements.
+
+## 3. Coding
 Write a service called `Cart` which serve usage listed below.
 
 **Basic** - Cart service that can manage items.
@@ -117,9 +120,6 @@ cart.count() // 2
 
 #### Notes
 - You will submit with language you are requested to do so.
-
-## 3. Database
-Design a database contains tables that support bellowing requirements.
 
 #### Requirements
 - As a store owner, I'd like to save customer information, so I can track age, gender and location for analysis purpose.
