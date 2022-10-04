@@ -141,7 +141,7 @@ Design microservices architecture for MVP Instagram-like mobile application whic
 - Interaction - Like and comment at content also notify the content owner
 - Messaging - Generic chat system
 - Notification - Notify user on their phone and email
-- Analytics - Report content's view and interaction daily
+- Analytics - Report content's view and interaction daily and send to owner email
 
 #### Requirements
 - You need to consider the time-to-market as first priority, following with cost and extensibility.
