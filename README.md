@@ -150,3 +150,28 @@ Design microservices architecture for MVP Instagram-like mobile application whic
 
 #### Notes
 - You are required to present this to the Engineering/Project/Business/Product/QA Team.
+
+## Answer
+
+1. RESTful API : ผมสร้าง service และ controller เพื่อให้สามารถเชื่อมได้
+- Headerที่เพิ่มขึ้นมา : 
+```bash 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJhY2Nlc3MiOnRydWV9.9Fwn0QV5wX3v0OFKau0gFrW17VH9_746Nb3Sqv7SO9U
+```
+โดยมี secret key = test1234 
+เมื่อทำการ decode JWT จะมีโครงสร้างเป็น
+```bash 
+{
+  "user_id": 1,
+  "access": true
+}
+```
+โดย ที่ อันนี้ผมทำการเชื่อมกับ Postges อาจจะมีปัญหาในการเชื่อมต่อ ต้องขออภัยด้วยครับ
+
+2. Database
+สามารถดูในใน Folder database
+โดยจะมี schema อยู่ 4 table : Product, item_product,user, cart
+
+3. Coding
+ผมใส่ตัวของ Postman ไว้ใน Folder postman โดยบาง api อาจจะมีการเปลี่ยน type ของข้อมูลบ้าง เช่น เปลี่ยนจาก string เป็น number
+* ผมใช้ Nestjs เป็น framework ของ node ครับ
