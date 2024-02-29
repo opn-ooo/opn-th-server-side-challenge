@@ -3,6 +3,10 @@
 
 Welcome to the Opn.Pro (Commerce) Engineering candidate testing area.
 
+**Please note that:**
+- We prefer to accept your assignment via GitHub or a similar platform.
+- Please be prepared to present your code and code review with the interviewer.
+
 ## 1. RESTful API
 Our commerce services need an interface where it bridges between frontend and data source, so we decided to have a RESTful API where it supports bellowing pages.
 
@@ -24,7 +28,8 @@ Our commerce services need an interface where it bridges between frontend and da
 - Validation have additional score.
 
 #### Notes
-- You will submit with language you are requested to do so.
+- Our expectation regarding this topic is to observe how you implement the RESTful API project.
+- You will submit with language you are requested to do so. (detault=node.js)
 - Any idea that makes your application better are acceptable.
 
 ## 2. Database
@@ -38,6 +43,7 @@ Design a database contains tables that support bellowing requirements.
 - As a store owner, I would like my customers to be able to add items to cart, so they can process to check out.
 
 #### Notes
+- Our expectation regarding this topic is to observe how familiar you are with the database.
 - Your design can be detailed as much as you want.
 - Any format of the design are acceptable, example: TXT, MD, SQL, JSON or any visual diagram as long as you can explain.
 
@@ -130,7 +136,8 @@ cart.count() // 2
 - Negative cases have additional score.
 
 #### Notes
-- You will submit with language you are requested to do so.
+- Our expectation for this topic is to assess your coding skills.
+- You will submit with language you are requested to do so (default=nodejs).
 
 ## 4. Solution Architecture
 Design microservices architecture for MVP Instagram-like mobile application which supports bellowing features.
@@ -149,4 +156,5 @@ Design microservices architecture for MVP Instagram-like mobile application whic
 - The diagram should come with pros, cons, risks and extensibility.
 
 #### Notes
+- Our expectation for this topic is to evaluate your architectural skills.
 - You are required to present this to the Engineering/Project/Business/Product/QA Team.
