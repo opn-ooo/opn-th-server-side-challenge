@@ -90,7 +90,7 @@ Write a service called `Cart` which serve usage listed below.
 - You will submit with language you are requested to do so (default=nodejs).
 
 ## 4. Solution Architecture
-Design microservices architecture for MVP Instagram-like mobile application which supports bellowing features.
+Design microservices architecture for MVP Instagram-like mobile application which supports following features.
 
 #### Features
 - Content uploading - Photo and video should be resized and reformatting
