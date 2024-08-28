@@ -8,7 +8,7 @@ Welcome to the Opn.Pro (Commerce) Engineering candidate testing area.
 - Please be prepared to present your code and code review with the interviewer.
 
 ## 1. RESTful API
-Our commerce services need an interface where it bridges between frontend and data source, so we decided to have a RESTful API where it supports bellowing pages.
+Our commerce services need an interface where it bridges between frontend and data source, so we decided to have a RESTful API where it supports following pages.
 
 #### Pages
 - **Registration page** is where new member can start their membership.
@@ -51,83 +51,33 @@ Design a database contains tables that support bellowing requirements.
 Write a service called `Cart` which serve usage listed below.
 
 **Basic** - Cart service that can manage items.
-
-```javascript
-// Create cart object
-cart = Cart.create(customer_id)
-
-// Add or increase item quantity in cart by product id.
-cart.add(product_id, quantity)
-
-// Replace item quantity or remove item from cart by product id.
-cart.update(product_id, quantity)
-
-// Delete item from cart by product id.
-cart.remove(product_id)
-
-// Delete cart object.
-cart.destroy()
-```
+- Cart can be created
+- Product can be added to cart via product id
+- Cart can be updated via product id. This update must be an absolute update
+  - i.e. updating product id `1` with quantity of `10` will update the cart product id `1` in cart to quantity of `10`
+- Product can be remove from cart via product id
+- Cart can be destroy
 
 **Utilities** - Functions that save consumers effort.
-
-```javascript
-// Check id product is already in cart, boolean returned.
-has = cart.has(product_id)
-
-// Check if cart contains any items, boolean returned.
-isEmpty = cart.isEmpty()
-
-// Display list of items and quantity, json returned.
-count = cart.count()
-
-// Get number of different items, int returned.
-quantity = cart.quantity()
-
-// Get amount of total items, int returned.
-total = cart.total()
-```
+- Can check if product already exists
+- Can check if cart is empty
+- Can list all items in cart
+- Can count number of unique items in cart
+- Can return the total amount of items in cart
 
 **Discount** - Sometimes customer apply coupon or voucher.
-- `addDiscount` - Apply a promotion to cart that effect directly to `total`
-  - Accept 2 parameters
-    - `name` - An identifier.
-    - `discount` - A parameters to be calculated.
-        - Case1: Deduct 50.- total
-            - `{type: "fixed", amount: 50}`
-        - Case2: Deduct 10% from total but not over 100.-
-            - `{type: "percentage", amount: 10, max: 100}`
-- `removeDiscount` - Remove promotion by name.
-
-```javascript
-discount = {type: "percentage", amount: 10, max: 100}
-
-total = cart.total() // 2500
-
-cart.addDiscount(name, discount)
-total = cart.total() // 2400
-
-cart.removeDiscount(name);
-total = cart.total() // 2500
-```
+- Discount should be apply to cart which directly changes the total amount of the cart
+- Discount should have a `name` identifier
+- Discount should be calculated as
+  - `fixed` where cart is deducted according to the discounted amount
+  - `percentage` where cart is deducted as a percentage from the total amount but not exceeding the maximum set with the discount.
+    - A cart with the total of 2,000 THB with a 10% discount and maximum of 100 THB will only apply 100 THB discount.
+- Should be able to remove discount by `name`
 
 **Freebie** - "Buy A get B for free!"
-- `addFreebie` - Apply a promotion to cart that effect directly to `items`
-  - Accept 3 parameters
-    - `name` - An identifier.
-    - `condition` - A valiation rule cart should applied to get reward.
-    - `reward` - A return if cart applied to condition
-
-```javascript
-cart.add(1, 1)
-
-condition = {type: "contains", product_id: 1}
-reward = {product_id: 2, quantity: 1}
-cart.addFreebie(name, condition, reward)
-
-cart.has(2) // true
-cart.count() // 2
-```
+- Freebie should be able to be apply to the cart with the following conditions
+  - If a cart contains the a product then add freebie product into the cart
+    - i.e. if a cart contain product `1` then add product `2` with quantity `1` to the cart
 
 #### Requirements
 - Your code should be executable on console or unit test.
@@ -140,7 +90,7 @@ cart.count() // 2
 - You will submit with language you are requested to do so (default=nodejs).
 
 ## 4. Solution Architecture
-Design microservices architecture for MVP Instagram-like mobile application which supports bellowing features.
+Design microservices architecture for MVP Instagram-like mobile application which supports following features.
 
 #### Features
 - Content uploading - Photo and video should be resized and reformatting
