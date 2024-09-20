@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "f074619a-2012-4514-9979-7fee38986e07",
+		"name": "api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "653373"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE3MjY4MzkyNjAsImV4cCI6MTcyNjg0Mjg2MH0.5EOo1xxkJgovWarON1B-N7cIqWeVAWzfF8tMpSvYThU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"test3@gmail.com\",\r\n        \"name\": \"test2\",\r\n        \"birthdate\": \"1994-10-12T12:13:14\",\r\n        \"isSubscribe\": true,\r\n        \"gender\": \"FEMALE\",\r\n        \"password\": \"hEraas1!\",\r\n        \"address\": {\r\n            \"plot\": \"test\",\r\n            \"road\": \"Sukhumvit\",\r\n            \"subdistrict\": \"Bangna\",\r\n            \"district\": \"Bangna\",\r\n            \"province\": \"Bangkok\",\r\n            \"postalCode\": \"20160\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test@gmail.com\",\r\n    \"password\": \"Testing1!\"\r\n}\r\n// after reset\r\n// {\r\n//     \"username\": \"test@gmail.com\",\r\n//     \"password\": \"Helloworld1!\"\r\n// }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"Testing1!\",\r\n    \"newPassword\": \"Helloworld1!\",\r\n    \"confirmPassword\": \"Helloworld1!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/reset-password/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"reset-password",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE3MjY4NDU3NDgsImV4cCI6MTcyNjg0OTM0OH0.LJoXfNkp-HjhiCbVWQAThttmRlBosUrPoUUpxSyb6LI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"gender\": \"FEMALE\",\r\n        \"isSubscribe\": false,\r\n        \"birthdate\": \"1994-05-10T10:10:10\",\r\n        \"address\": {\r\n            \"plot\": \"test\",\r\n            \"road\": \"Sukhumvit\",\r\n            \"subdistrict\": \"Bangna\",\r\n            \"district\": \"Bangna\",\r\n            \"province\": \"Bangkok\",\r\n            \"postalCode\": \"20160\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE3MjY4NDU3NDgsImV4cCI6MTcyNjg0OTM0OH0.LJoXfNkp-HjhiCbVWQAThttmRlBosUrPoUUpxSyb6LI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE3MjY4NDU3NDgsImV4cCI6MTcyNjg0OTM0OH0.LJoXfNkp-HjhiCbVWQAThttmRlBosUrPoUUpxSyb6LI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
