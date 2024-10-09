@@ -88,6 +88,7 @@ Write a service called `Cart` which serve usage listed below.
 #### Notes
 - Our expectation for this topic is to assess your coding skills.
 - You will submit with language you are requested to do so (default=nodejs).
+- Bonus consideration for OOP
 
 ## 4. Solution Architecture
 Design microservices architecture for MVP Instagram-like mobile application which supports following features.
