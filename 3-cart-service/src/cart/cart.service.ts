@@ -7,6 +7,7 @@ import { ICartItem } from './cart.interface';
 import { IDiscountResult } from '../discount/discount.interface';
 import { IFreebieResult } from '../freebie/freebie.interface';
 import { hasProduct, isCartEmpty, listAllItems, countUniqueItems, getTotalItems, getTotalAmount } from '../utils';
+import { Product } from '../product/product.model';
 
 export class CartService {
   private cart: Cart;
@@ -25,18 +26,32 @@ export class CartService {
   }
 
   addProduct(productId: number, quantity: number): void {    
+    // Validate input parameters
+    if (quantity <= 0) {
+      throw new Error(`Invalid quantity: ${quantity}. Quantity must be greater than 0.`);
+    }
+    
+    if (!Product.findById(productId)) {
+      throw new Error(`Product with ID ${productId} does not exist.`);
+    }
+    
     this.cart.addItem(productId, quantity);
     // check and process freebies
     this.freebieService.applyFreebies(this.cart);
   }
 
   updateProduct(productId: number, quantity: number): void {
+    // Validate input parameters
+    if (quantity < 0) {
+      throw new Error(`Invalid quantity: ${quantity}. Quantity cannot be negative.`);
+    }
+        
     this.cart.updateItem(productId, quantity);
     // check and process freebies
     this.freebieService.applyFreebies(this.cart);
   }
 
-  removeProduct(productId: number): void {
+  removeProduct(productId: number): void {    
     this.cart.removeItem(productId);
     // remove freebies for the trigger product
     this.freebieService.removeFreebiesForTrigger(this.cart, productId);

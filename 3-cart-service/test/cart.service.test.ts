@@ -92,4 +92,39 @@ describe('CartService', () => {
     expect(cartService.getTotalAmount()).toBe(1000);
     expect(cartService.hasDiscount('TEST100')).toBe(false);
   });
+
+  // Negative cases for cart operations
+  it('should handle adding product with negative quantity', () => {
+    const cartService = new CartService();
+    expect(() => cartService.addProduct(1, -1)).toThrow();
+  });
+
+  it('should handle updating non-existent product', () => {
+    const cartService = new CartService();
+    cartService.updateProduct(999, 5); // Should not throw, just do nothing
+    expect(cartService.hasProduct(999)).toBe(false);
+  });
+
+  it('should handle removing non-existent product', () => {
+    const cartService = new CartService();
+    cartService.removeProduct(999); // Should not throw, just do nothing
+  });
+
+  // Negative cases for discount operations
+  it('should handle invalid discount amounts', () => {
+    const cartService = new CartService();
+    cartService.addProduct(1, 1);
+    expect(() => Discount.createFixedDiscount('INVALID', -100)).toThrow();
+  });
+
+  it('should handle percentage discount over 100%', () => {
+    const cartService = new CartService();
+    cartService.addProduct(1, 1);
+    expect(() => Discount.createPercentageDiscount('INVALID', 150, 100)).toThrow();
+  });
+
+  // Negative cases for freebie operations
+  it('should handle invalid freebie rule', () => {
+    expect(() => FreebieRule.create(999, 998, -1)).toThrow();
+  });
 }); 
